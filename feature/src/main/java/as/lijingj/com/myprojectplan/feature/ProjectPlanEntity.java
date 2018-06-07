@@ -1,5 +1,7 @@
 package as.lijingj.com.myprojectplan.feature;
 
+import android.view.Menu;
+
 import java.text.Format;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -13,6 +15,17 @@ public class ProjectPlanEntity {
     private Date BeginDate;
     private Date EndDate;
     private int EndIndex;
+
+    public ProjectPlanEntity(){}
+
+    public ProjectPlanEntity(int mId,String mTitle,String mContent,String mBdate,String mEdate){
+        this.PlanId = mId;
+        this.PlanTitle = mTitle;
+        this.PlanContent =mContent;
+
+        this.BeginDate = ConvertDate.StrToSmallDate(mBdate);
+        this.EndDate = ConvertDate.stringToDate(mEdate);
+    }
 
     public int getPlanId() {
         return PlanId;

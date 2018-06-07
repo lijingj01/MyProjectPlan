@@ -2,10 +2,15 @@ package as.lijingj.com.myprojectplan.feature;
 
 import android.content.ContentValues;
 import android.content.Context;
+import android.database.Cursor;
 import android.database.SQLException;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
+import android.media.browse.MediaBrowser;
 import android.util.Log;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class ProjectPlanDbAdapter {
 
@@ -73,8 +78,8 @@ public class ProjectPlanDbAdapter {
         mDb = mDbHelper.getWritableDatabase();
     }
 
-    public void close(){
-        if(mDbHelper != null){
+    public void close() {
+        if (mDbHelper != null) {
             mDbHelper.close();
         }
     }
@@ -89,6 +94,60 @@ public class ProjectPlanDbAdapter {
         values.put(COL_BeginDate, item.GetBeginDateString());
         values.put(COL_EndDate, item.GetEndDateString());
         mDb.insert(TABLE_NAME,null,values);
+    }
+
+    public  ProjectPlanEntity fetchProjectPlanById(int id){
+        Cursor cursor = mDb.query(TABLE_NAME,new String[]{COL_ID,COL_Title,COL_Content,COL_BeginDate,COL_EndDate}
+                                    , COL_ID+ "=?",new String[]{String.valueOf(id)},null,null,null,null);
+        if(cursor != null){
+            cursor.moveToFirst();
+        }
+
+        ProjectPlanEntity item = new ProjectPlanEntity(
+                cursor.getInt(cursor.getColumnIndex(COL_ID))
+                , cursor.getString(cursor.getColumnIndex(COL_Title))
+                , cursor.getString(cursor.getColumnIndex(COL_Content))
+                , cursor.getString(cursor.getColumnIndex(COL_BeginDate))
+                , cursor.getString(cursor.getColumnIndex(COL_EndDate))
+        );
+        cursor.close();
+
+        return item;
+    }
+
+    public List<ProjectPlanEntity> fetchAllProjectPlan(){
+        //获取所有的数据
+        Cursor cursor = mDb.query(TABLE_NAME, new String[]{COL_ID, COL_Title, COL_Content, COL_BeginDate, COL_EndDate}
+                , null, null, null, null, null, null);
+
+        List<ProjectPlanEntity> items = new ArrayList<>();
+        if(cursor != null) {
+            while (cursor.moveToNext()) {
+                ProjectPlanEntity item = new ProjectPlanEntity(
+                        cursor.getInt(cursor.getColumnIndex(COL_ID))
+                        , cursor.getString(cursor.getColumnIndex(COL_Title))
+                        , cursor.getString(cursor.getColumnIndex(COL_Content))
+                        , cursor.getString(cursor.getColumnIndex(COL_BeginDate))
+                        , cursor.getString(cursor.getColumnIndex(COL_EndDate)));
+                items.add(item);
+            }
+            cursor.close();
+        }
+
+        return items;
+    }
+
+    public void UpdateProjectPlan(ProjectPlanEntity item){
+        ContentValues values = new ContentValues();
+        values.put(COL_Title, item.getPlanTitle());
+        values.put(COL_Content, item.getPlanContent());
+        values.put(COL_BeginDate, item.GetBeginDateString());
+        values.put(COL_EndDate, item.GetEndDateString());
+        mDb.update(TABLE_NAME,values, COL_ID+ "=?",new String[]{String.valueOf(item.getPlanId())});
+    }
+
+    public void deleteProjectPlanById(int PlanId){
+        mDb.delete(TABLE_NAME,  COL_ID + "=?", new String[]{String.valueOf(PlanId)});
     }
     //endregion
 }
