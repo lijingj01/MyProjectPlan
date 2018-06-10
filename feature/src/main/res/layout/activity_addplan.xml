@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:padding="5dp">
+
+
+    <TableLayout
+        android:id="@+id/myTable"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="10dp">
+
+        <TableRow android:layout_marginBottom="10dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="20dp"
+                android:layout_weight="3"
+                android:textColor="@color/black"
+                android:text="@string/StrPlanTitle"
+                android:textSize="15sp" />
+
+            <EditText
+                android:id="@+id/txtTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="7"
+                android:ems="10"
+                android:inputType="" />
+        </TableRow>
+
+        <TableRow android:layout_marginTop="10dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="20dp"
+                android:layout_weight="3"
+                android:textColor="@color/black"
+                android:text="@string/StrPlanContent"
+                android:textSize="15sp" />
+
+            <EditText
+                android:id="@+id/txtContent"
+                android:layout_weight="7"
+                android:layout_width="250dp"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:inputType="textMultiLine" />
+        </TableRow>
+
+        <TableRow android:layout_marginTop="10dp"
+            android:gravity="center"
+
+            >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="3"
+
+                android:text="@string/StrBeginDate"
+                android:textColor="@color/black"
+                android:textSize="15sp" />
+
+            <LinearLayout
+                android:layout_height="wrap_content"
+                android:layout_weight="7">
+
+
+                <EditText
+                    android:id="@+id/editText"
+                    android:layout_width="200dp"
+                    android:layout_height="wrap_content"
+                    android:cursorVisible="false"
+                    android:gravity="center"
+                    android:editable="false"
+                    android:inputType="" />
+
+                <Button
+                    android:id="@+id/btnDate"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="日期选择" />
+
+            </LinearLayout>
+        </TableRow>
+
+        <TableRow android:layout_marginTop="10dp"
+            android:gravity="center"
+            >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="20dp"
+                android:layout_weight="3"
+                android:textColor="@color/black"
+                android:text="@string/StrEndDate"
+                android:textSize="15sp" />
+
+            <LinearLayout
+                android:layout_height="wrap_content"
+                android:layout_weight="7">
+
+                <EditText
+                    android:id="@+id/editEndText"
+                    android:layout_width="200dp"
+                    android:layout_height="wrap_content"
+                    android:cursorVisible="false"
+                    android:gravity="center"
+                    android:inputType=""
+                    android:editable="false" />
+
+                <Button
+                    android:id="@+id/btnEndDate"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="日期选择" />
+            </LinearLayout>
+        </TableRow>
+        <TableRow>
+
+        </TableRow>
+    </TableLayout>
+
+</RelativeLayout>
