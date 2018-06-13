@@ -31,13 +31,9 @@ public class AddPlanActivity extends Activity {
         editText.setInputType(InputType.TYPE_NULL);
         editText.setFocusable(false);
 
-//        InputMethodManager imm = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
-//        imm.hideSoftInputFromWindow(editText.getWindowToken(), 0);
-
         EditText editEndText = (EditText) findViewById(R.id.editEndText);
         editEndText.setInputType(InputType.TYPE_NULL);
         editEndText.setFocusable(false);
-//        imm.hideSoftInputFromWindow(editEndText.getWindowToken(), 0);
 
         //开始日期
         Button btnDate = (Button) findViewById(R.id.btnDate);
