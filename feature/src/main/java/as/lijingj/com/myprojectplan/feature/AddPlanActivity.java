@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.app.DatePickerDialog;
 import android.app.Dialog;
 import android.content.Context;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.InputType;
@@ -13,6 +14,9 @@ import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
+import android.widget.Toast;
+
+import com.lijingj.gc.materialdesign.views.ButtonRectangle;
 
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
@@ -70,6 +74,20 @@ public class AddPlanActivity extends Activity {
             }
         });
         //endregion
+
+//        int color = getIntent().getIntExtra("BACKGROUND", Color.BLUE);
+//        findViewById(R.id.btSave).setBackgroundColor(color);
+        ButtonRectangle btSave = findViewById(R.id.btSave);
+        btSave.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                String title = ((EditText) findViewById(R.id.txtTitle)).getText().toString();
+                String remark = ((EditText) findViewById(R.id.txtContent)).getText().toString();
+
+                Toast.makeText(AddPlanActivity.this, "计划标题:" + title, Toast.LENGTH_SHORT).show();
+                Toast.makeText(AddPlanActivity.this, "计划内容:" + remark, Toast.LENGTH_SHORT).show();
+            }
+        });
     }
 
     //region 日期选择的相关方法

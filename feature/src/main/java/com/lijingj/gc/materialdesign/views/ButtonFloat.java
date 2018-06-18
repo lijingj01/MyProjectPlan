@@ -17,6 +17,7 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.lijingj.gc.materialdesign.utils.Utils;
+import com.nineoldandroids.view.ViewHelper;
 
 import as.lijingj.com.myprojectplan.feature.R;
 

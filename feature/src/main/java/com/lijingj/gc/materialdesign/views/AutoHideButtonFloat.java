@@ -12,6 +12,7 @@ import android.widget.ListView;
  * Created by hamedpc on 4/25/2015.
  * This widget uses NineOldAndroid to animate the view so you're gonna need to include it in your project
  */
+/*
 public class AutoHideButtonFloat extends ButtonFloat implements AbsListView.OnScrollListener {
     ListView listView;
     private boolean floatHiding = false, floatShowing = false;
@@ -69,3 +70,4 @@ public class AutoHideButtonFloat extends ButtonFloat implements AbsListView.OnSc
             onScrollListener.onScroll(absListView, firstVisibleItem, visibleItemCount, totalItemCount);
     }
 }
+*/

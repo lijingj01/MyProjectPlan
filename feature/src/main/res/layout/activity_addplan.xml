@@ -119,9 +119,19 @@
                     android:text="日期选择" />
             </LinearLayout>
         </TableRow>
-        <TableRow>
-            +
+
+        <TableRow android:layout_marginTop="10dp">
+
+            <com.lijingj.gc.materialdesign.views.ButtonRectangle
+                android:id="@+id/btSave"
+                android:layout_width="match_parent"
+                android:layout_height="61dp"
+                android:layout_alignParentStart="true"
+                android:layout_centerVertical="true"
+                android:layout_span="2"
+                android:text="保存计划" />
         </TableRow>
     </TableLayout>
+
 
 </RelativeLayout>
